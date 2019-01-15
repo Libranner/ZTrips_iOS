@@ -12,6 +12,10 @@
 		EE6523E221DD31A3000B5FCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6523E021DD31A3000B5FCD /* Main.storyboard */; };
 		EE6523E421DD31A4000B5FCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6523E321DD31A4000B5FCD /* Assets.xcassets */; };
 		EE6523E721DD31A4000B5FCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6523E521DD31A4000B5FCD /* LaunchScreen.storyboard */; };
+		EE6523F021DD4B09000B5FCD /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523EF21DD4B09000B5FCD /* Place.swift */; };
+		EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F121DD4B76000B5FCD /* Coordinate.swift */; };
+		EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F421DD4C07000B5FCD /* DataDownloader.swift */; };
+		EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		EE6523E321DD31A4000B5FCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE6523E621DD31A4000B5FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE6523E821DD31A4000B5FCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE6523EF21DD4B09000B5FCD /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		EE6523F121DD4B76000B5FCD /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		EE6523F421DD4C07000B5FCD /* DataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDownloader.swift; sourceTree = "<group>"; };
+		EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,58 @@
 		EE6523DB21DD31A3000B5FCD /* ZTrips */ = {
 			isa = PBXGroup;
 			children = (
+				EE6523FA21DD4E80000B5FCD /* Controllers */,
+				EE6523F921DD4E73000B5FCD /* Storyboards */,
+				EE6523F821DD4E62000B5FCD /* Assets */,
+				EE6523F321DD4BF1000B5FCD /* Services */,
+				EE6523EE21DD4AE8000B5FCD /* Models */,
 				EE6523DC21DD31A3000B5FCD /* AppDelegate.swift */,
-				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
-				EE6523E021DD31A3000B5FCD /* Main.storyboard */,
-				EE6523E321DD31A4000B5FCD /* Assets.xcassets */,
-				EE6523E521DD31A4000B5FCD /* LaunchScreen.storyboard */,
 				EE6523E821DD31A4000B5FCD /* Info.plist */,
 			);
 			path = ZTrips;
+			sourceTree = "<group>";
+		};
+		EE6523EE21DD4AE8000B5FCD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE6523EF21DD4B09000B5FCD /* Place.swift */,
+				EE6523F121DD4B76000B5FCD /* Coordinate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EE6523F321DD4BF1000B5FCD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE6523F421DD4C07000B5FCD /* DataDownloader.swift */,
+				EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE6523F821DD4E62000B5FCD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EE6523E321DD31A4000B5FCD /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EE6523F921DD4E73000B5FCD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EE6523E021DD31A3000B5FCD /* Main.storyboard */,
+				EE6523E521DD31A4000B5FCD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EE6523FA21DD4E80000B5FCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6523F021DD4B09000B5FCD /* Place.swift in Sources */,
+				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
+				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
+				EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
