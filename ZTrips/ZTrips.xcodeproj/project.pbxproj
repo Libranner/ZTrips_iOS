@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39121EE653F001E5635 /* CustomLayout.swift */; };
+		EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */; };
+		EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */; };
+		EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39821EE91F2001E5635 /* ImageCache.swift */; };
+		EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39A21EE9273001E5635 /* AsyncImageView.swift */; };
 		EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523DC21DD31A3000B5FCD /* AppDelegate.swift */; };
 		EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523DE21DD31A3000B5FCD /* ViewController.swift */; };
 		EE6523E221DD31A3000B5FCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6523E021DD31A3000B5FCD /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE3BF39121EE653F001E5635 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewController.swift; sourceTree = "<group>"; };
+		EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		EE3BF39821EE91F2001E5635 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		EE3BF39A21EE9273001E5635 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		EE6523D921DD31A3000B5FCD /* ZTrips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZTrips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6523DC21DD31A3000B5FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE6523DE21DD31A3000B5FCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +53,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3BF39021EE6514001E5635 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				EE3BF39121EE653F001E5635 /* CustomLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		EE3BF39521EE6E8F001E5635 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				EE3BF39A21EE9273001E5635 /* AsyncImageView.swift */,
+				EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
 		EE6523D021DD31A3000B5FCD = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +89,8 @@
 		EE6523DB21DD31A3000B5FCD /* ZTrips */ = {
 			isa = PBXGroup;
 			children = (
+				EE3BF39521EE6E8F001E5635 /* VIews */,
+				EE3BF39021EE6514001E5635 /* Layouts */,
 				EE6523FA21DD4E80000B5FCD /* Controllers */,
 				EE6523F921DD4E73000B5FCD /* Storyboards */,
 				EE6523F821DD4E62000B5FCD /* Assets */,
@@ -87,6 +116,7 @@
 			children = (
 				EE6523F421DD4C07000B5FCD /* DataDownloader.swift */,
 				EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */,
+				EE3BF39821EE91F2001E5635 /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -112,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
+				EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,8 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */,
 				EE6523F021DD4B09000B5FCD /* Place.swift in Sources */,
+				EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */,
+				EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */,
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
+				EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */,
+				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
