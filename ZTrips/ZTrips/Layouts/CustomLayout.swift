@@ -19,7 +19,7 @@ class CustomLayout: UICollectionViewLayout {
   
   //2. Configurable properties
   fileprivate var numberOfColumns = 2
-  fileprivate var cellPadding: CGFloat = 6
+  fileprivate var cellPadding: CGFloat = 3
   
   //3. Array to keep a cache of attributes.
   fileprivate var cache = [UICollectionViewLayoutAttributes]()

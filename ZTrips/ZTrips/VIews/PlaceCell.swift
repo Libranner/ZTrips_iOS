@@ -1,5 +1,5 @@
 //
-//  AnnotatedPhotoCell.swift
+//  PlaceCell.swift
 //  ZTrips
 //
 //  Created by Libranner Leonel Santos Espinal on 15/01/2019.

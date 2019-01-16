@@ -21,6 +21,9 @@
 		EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F121DD4B76000B5FCD /* Coordinate.swift */; };
 		EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F421DD4C07000B5FCD /* DataDownloader.swift */; };
 		EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */; };
+		EE8E694821EF7D9E00279C72 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694721EF7D9E00279C72 /* GradientView.swift */; };
+		EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */; };
+		EE8E694D21EF8B6100279C72 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694C21EF8B6100279C72 /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		EE6523F121DD4B76000B5FCD /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		EE6523F421DD4C07000B5FCD /* DataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDownloader.swift; sourceTree = "<group>"; };
 		EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlCreator.swift; sourceTree = "<group>"; };
+		EE8E694721EF7D9E00279C72 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		EE8E694C21EF8B6100279C72 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			children = (
 				EE3BF39A21EE9273001E5635 /* AsyncImageView.swift */,
 				EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */,
+				EE8E694721EF7D9E00279C72 /* GradientView.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 		EE6523DB21DD31A3000B5FCD /* ZTrips */ = {
 			isa = PBXGroup;
 			children = (
+				EE8E694B21EF8B3000279C72 /* Utils */,
 				EE3BF39521EE6E8F001E5635 /* VIews */,
 				EE3BF39021EE6514001E5635 /* Layouts */,
 				EE6523FA21DD4E80000B5FCD /* Controllers */,
@@ -143,8 +151,17 @@
 			children = (
 				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
 				EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */,
+				EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EE8E694B21EF8B3000279C72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EE8E694C21EF8B6100279C72 /* AppConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,8 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */,
 				EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */,
 				EE6523F021DD4B09000B5FCD /* Place.swift in Sources */,
+				EE8E694821EF7D9E00279C72 /* GradientView.swift in Sources */,
 				EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */,
 				EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */,
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
@@ -227,6 +246,7 @@
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
+				EE8E694D21EF8B6100279C72 /* AppConstants.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
 				EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */,
 			);

@@ -25,7 +25,7 @@ class PlacesCollectionViewController: UICollectionViewController {
       view.backgroundColor = UIColor(patternImage: patternImage)
     }
     collectionView?.backgroundColor = UIColor.white
-    collectionView?.contentInset = UIEdgeInsets(top: 50, left: 10, bottom: 10, right: 10)
+    collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 10, right: 0)
     // Set the PinterestLayout delegate
     if let layout = collectionView?.collectionViewLayout as? CustomLayout {
       layout.delegate = self
@@ -48,7 +48,7 @@ extension PlacesCollectionViewController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnnotatedPhotoCell", for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     if let annotateCell = cell as? PlaceCell {
       annotateCell.place = places[indexPath.item]
     }
@@ -58,9 +58,11 @@ extension PlacesCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let place = getPlace(index: indexPath.item)
     print(" Place: \(place!.name)")
+    
+    self.performSegue(withIdentifier: SegueIdentifiers.PLACE_DETAIL, sender: self)
   }
   
-  func getPlace(index: Int) -> Place? {
+  fileprivate func getPlace(index: Int) -> Place? {
     if(index < places.count) {
       return places[index]
     }
