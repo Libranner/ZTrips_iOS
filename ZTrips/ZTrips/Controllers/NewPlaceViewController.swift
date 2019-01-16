@@ -21,7 +21,7 @@ class NewPlaceViewController: UIViewController, UINavigationControllerDelegate, 
         // Do any additional setup after loading the view.
     }
     
-    //Take photo, please note this is not connected
+    //Take photo, please note this is not connected to any button, as a I don't know how to make an image button
     @IBAction func photoButton (_sender: Any){
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -51,7 +51,8 @@ class NewPlaceViewController: UIViewController, UINavigationControllerDelegate, 
     }
 
     @IBAction func saveButton(_sender: Any){
-        savePhoto(photoName: "photo1.png")
+        savePhoto(photoName: imageName.text!)
+        print(imageName.text as Any)
     }
     
     //close the View Controller and go Back to Main

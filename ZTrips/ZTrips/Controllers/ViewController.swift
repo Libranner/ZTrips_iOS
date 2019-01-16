@@ -7,12 +7,44 @@
 //
 
 import UIKit
+import UserNotifications
+import CoreLocation
 
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    
+    
+    //MARK: Notifications
+    
+    //setting the notification
+    let notificationContent = UNMutableNotificationContent()
+    notificationContent.title = "Saludos Terricola"
+    notificationContent.body = "Check out this new place near you"
+    notificationContent.sound = UNNotificationSound.default
+    
+    //setting the trigger with a timer
+    let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+    
+    //setting the trigger with a location - unable to simulate
+    
+//    let center = CLLocationCoordinate2D(latitude: 37.335400, longitude: -122.009201)
+//    let region = CLCircularRegion(center: center, radius: 2000.0, identifier: "Headquarters")
+//    region.notifyOnEntry = true
+//    region.notifyOnExit = false
+//    let locationTrigger = UNLocationNotificationTrigger(region: region, repeats: false)
+
+    
+    //setting the request
+    let notificationRequest = UNNotificationRequest(identifier: "ZaragozaTripsNotification", content: notificationContent, trigger: notificationTrigger)
+
+    //sending the notification
+    UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+
+    
+    //MARK: DataDownloader
     
     DataDownloader().download { (places) in
       print(places!)

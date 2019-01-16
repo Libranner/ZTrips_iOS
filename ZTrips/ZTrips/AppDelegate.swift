@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
   var window: UIWindow?
-
-
+    
+    //notification delegate to send notifications while in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    //what the app does when the notification is tapped
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.notification.request.identifier == "ZaragozaTripsNotification"{
+            print("Handling notification with identifier 'ZaragozaTripsNotification'")
+        
+        }
+        
+        completionHandler()
+    }
+    
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+   
+    //notification delegate
+    UNUserNotificationCenter.current().delegate = self
+    
+    //Local notification permission request
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+    {(granted, error) in print("Granted: \(granted)")}
+    
     return true
   }
 
