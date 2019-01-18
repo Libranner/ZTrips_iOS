@@ -25,8 +25,8 @@ class PlacesCollectionViewController: UICollectionViewController {
       view.backgroundColor = UIColor(patternImage: patternImage)
     }
     collectionView?.backgroundColor = UIColor.white
-    collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 10, right: 0)
-    // Set the PinterestLayout delegate
+    collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+
     if let layout = collectionView?.collectionViewLayout as? CustomLayout {
       layout.delegate = self
     }
@@ -37,9 +37,7 @@ class PlacesCollectionViewController: UICollectionViewController {
         self?.collectionView?.reloadData()
       }
     }
-    
   }
-  
 }
 
 extension PlacesCollectionViewController {
@@ -62,6 +60,21 @@ extension PlacesCollectionViewController {
     self.performSegue(withIdentifier: SegueIdentifiers.PLACE_DETAIL, sender: self)
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == SegueIdentifiers.PLACE_DETAIL) {
+      let vc = segue.destination as! PlaceDetailViewController
+      let place = getPlace(index: collectionView.indexPathsForSelectedItems!.first!.item)
+      vc.place = place
+    }
+    else if(segue.identifier == SegueIdentifiers.PLACE_FILTERS) {
+      guard let navigationController = segue.destination as? UINavigationController,
+        let vc = navigationController.topViewController as? FiltersTableViewController else {
+          return
+      }
+      vc.delegate = self
+    }
+  }
+  
   fileprivate func getPlace(index: Int) -> Place? {
     if(index < places.count) {
       return places[index]
@@ -81,5 +94,13 @@ extension PlacesCollectionViewController : CustomLayoutDelegate {
     }
     return 500
     //return places[indexPath.item].image.size.height
+  }
+}
+
+extension PlacesCollectionViewController: FiltersTableViewControllerDelegate {
+  func filtersController(_ controller: FiltersTableViewController, didSelectFilters filters: [String]) {
+    //searchedTypes = controller.selectedTypes.sorted()
+    dismiss(animated: true)
+    //fetchNearbyPlaces(coordinate: mapView.camera.target)
   }
 }

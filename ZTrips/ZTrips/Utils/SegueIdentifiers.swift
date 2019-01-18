@@ -1,5 +1,5 @@
 //
-//  AppConstants.swift
+//  SegueIdentifiers.swift
 //  ZTrips
 //
 //  Created by Libranner Leonel Santos Espinal on 16/01/2019.
@@ -10,5 +10,6 @@ import Foundation
 
 struct SegueIdentifiers {
   static let PLACE_DETAIL = "ShowPlaceDetail"
+  static let PLACE_FILTERS = "ShowFilters"
 }
 

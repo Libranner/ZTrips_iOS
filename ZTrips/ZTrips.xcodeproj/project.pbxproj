@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E721EFF05E003315CF /* AboutViewController.swift */; };
+		EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */; };
+		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
 		EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39121EE653F001E5635 /* CustomLayout.swift */; };
 		EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */; };
 		EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */; };
@@ -23,10 +26,13 @@
 		EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */; };
 		EE8E694821EF7D9E00279C72 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694721EF7D9E00279C72 /* GradientView.swift */; };
 		EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */; };
-		EE8E694D21EF8B6100279C72 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694C21EF8B6100279C72 /* AppConstants.swift */; };
+		EE8E694D21EF8B6100279C72 /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8E694C21EF8B6100279C72 /* SegueIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE1056E721EFF05E003315CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
+		EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		EE3BF39121EE653F001E5635 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewController.swift; sourceTree = "<group>"; };
 		EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -45,7 +51,7 @@
 		EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlCreator.swift; sourceTree = "<group>"; };
 		EE8E694721EF7D9E00279C72 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
-		EE8E694C21EF8B6100279C72 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		EE8E694C21EF8B6100279C72 /* SegueIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,9 @@
 		EE6523FA21DD4E80000B5FCD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */,
+				EE1056E721EFF05E003315CF /* AboutViewController.swift */,
+				EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */,
 				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
 				EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */,
 				EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */,
@@ -159,7 +168,7 @@
 		EE8E694B21EF8B3000279C72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EE8E694C21EF8B6100279C72 /* AppConstants.swift */,
+				EE8E694C21EF8B6100279C72 /* SegueIdentifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,9 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */,
+				EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */,
 				EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */,
 				EE6523F021DD4B09000B5FCD /* Place.swift in Sources */,
+				EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */,
 				EE8E694821EF7D9E00279C72 /* GradientView.swift in Sources */,
+				EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */,
 				EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */,
 				EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */,
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
@@ -246,7 +258,7 @@
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
-				EE8E694D21EF8B6100279C72 /* AppConstants.swift in Sources */,
+				EE8E694D21EF8B6100279C72 /* SegueIdentifiers.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
 				EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */,
 			);

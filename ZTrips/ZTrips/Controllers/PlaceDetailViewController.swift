@@ -10,11 +10,24 @@ import UIKit
 
 class PlaceDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  var place: Place!
 
-        // Do any additional setup after loading the view.
-    }
-    
-
+  @IBOutlet weak var mainImageView: AsyncImageView!
+  @IBOutlet weak var placeNameLabel: UILabel!
+  @IBOutlet weak var placeDescriptionLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var scheduleLabel: UILabel!
+  
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      setupScreen()
+  }
+  
+  func setupScreen() {
+    mainImageView.fillWithURL(place.mainImageUrl, placeholder: nil)
+    placeNameLabel.text = place.name
+    placeDescriptionLabel.text = place.summary
+    locationLabel.text = "23232"
+    scheduleLabel.text = place.schedule
+  }
 }
