@@ -12,6 +12,7 @@
 		EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */; };
 		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
 		EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056ED21F2AF44003315CF /* MapViewController.swift */; };
+		EE1056F821F3A852003315CF /* PlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056F721F3A852003315CF /* PlacesManager.swift */; };
 		EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39121EE653F001E5635 /* CustomLayout.swift */; };
 		EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */; };
 		EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */; };
@@ -38,6 +39,7 @@
 		EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		EE1056ED21F2AF44003315CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EE1056F721F3A852003315CF /* PlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesManager.swift; sourceTree = "<group>"; };
 		EE3BF39121EE653F001E5635 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewController.swift; sourceTree = "<group>"; };
 		EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				EE6523F421DD4C07000B5FCD /* DataDownloader.swift */,
 				EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */,
 				EE3BF39821EE91F2001E5635 /* ImageCache.swift */,
+				EE1056F721F3A852003315CF /* PlacesManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
 				EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */,
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
+				EE1056F821F3A852003315CF /* PlacesManager.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
 				EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,

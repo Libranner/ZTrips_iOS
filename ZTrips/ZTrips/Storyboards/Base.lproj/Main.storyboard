@@ -107,7 +107,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="3zr-Vs-aul" kind="show" identifier="ShowPlaceDetail" id="JTW-kP-Hpy"/>
+                        <segue destination="3zr-Vs-aul" kind="show" identifier="ShowPlaceDetail" id="Dd7-E5-QL0"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wK-Kr-xit" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoJ-nm-Btd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="843"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Cb-Ya-MZu" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="972.5"/>
@@ -267,6 +267,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVY-Jp-oWf"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="f4z-I3-xXq"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="lTX-my-dbC">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="e3K-GL-dOr"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="locationLabel" destination="S2j-GY-XEL" id="KNc-yw-xDr"/>
@@ -278,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtw-hG-p2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3655" y="-386"/>
+            <point key="canvasLocation" x="4109" y="-359"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qvh-wW-mot">
@@ -567,7 +574,7 @@
         <!--Map View Controller-->
         <scene sceneID="Qd7-gl-Yom">
             <objects>
-                <viewController id="UpN-ew-nFJ" customClass="MapViewController" customModule="Feed_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UpN-ew-nFJ" customClass="MapViewController" customModule="ZTrips" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SHs-hK-1z1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -610,7 +617,7 @@
                         <outlet property="mapCenterPinImage" destination="Niv-Yp-mMk" id="jFM-Wn-eqm"/>
                         <outlet property="mapView" destination="nOu-hv-gMq" id="3MU-eu-5q2"/>
                         <outlet property="pinImageVerticalConstraint" destination="tKc-Jq-DMx" id="lAM-1K-we8"/>
-                        <segue destination="3zr-Vs-aul" kind="show" identifier="ShowPlaceDetail" id="dxp-Ku-ezf"/>
+                        <segue destination="3zr-Vs-aul" kind="show" identifier="ShowPlaceDetail" id="NfV-Fs-p7J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUk-Jw-Rkv" sceneMemberID="firstResponder"/>
@@ -630,6 +637,6 @@
         <image name="places_logo" width="17" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dxp-Ku-ezf"/>
+        <segue reference="NfV-Fs-p7J"/>
     </inferredMetricsTieBreakers>
 </document>
