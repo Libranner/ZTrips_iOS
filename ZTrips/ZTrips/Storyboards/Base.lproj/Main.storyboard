@@ -267,10 +267,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVY-Jp-oWf"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="f4z-I3-xXq"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="lTX-my-dbC"/>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
