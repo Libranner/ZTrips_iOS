@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -15,20 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+    setupNavigationBarScheme()
+    setupNotifications()
+    setupGoogleMaps()
+  
+    return true
+  }
+  
+  func setupNotifications() {
     //notification delegate
     UNUserNotificationCenter.current().delegate = self
     
     //Local notification permission request
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
     {(granted, error) in print("Granted: \(granted)")}
-    
+  }
+  
+  func setupNavigationBarScheme() {
     UINavigationBar.appearance().tintColor = .orange
-    //235,171,84
     UINavigationBar.appearance().barTintColor = .white //UIColor(red: 240/255.0, green: 115/255.0, blue: 39/255.0, alpha: 1)
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.orange]
-
-    return true
+  }
+  
+  func setupGoogleMaps() {
+    GMSServices.provideAPIKey("AIzaSyCqMB6JOw_gw_ew-tAkD90dYioxMtUhfTo")
   }
   
   //notification delegate to send notifications while in the foreground

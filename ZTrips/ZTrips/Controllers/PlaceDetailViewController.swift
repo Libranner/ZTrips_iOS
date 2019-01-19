@@ -10,7 +10,7 @@ import UIKit
 
 class PlaceDetailViewController: UIViewController {
 
-  var place: Place!
+  var place: Place?
 
   @IBOutlet weak var mainImageView: AsyncImageView!
   @IBOutlet weak var placeNameLabel: UILabel!
@@ -24,10 +24,12 @@ class PlaceDetailViewController: UIViewController {
   }
   
   func setupScreen() {
-    mainImageView.fillWithURL(place.mainImageUrl, placeholder: nil)
-    placeNameLabel.text = place.name
-    placeDescriptionLabel.text = place.summary
-    locationLabel.text = "23232"
-    scheduleLabel.text = place.schedule
+    if let place = place {
+      mainImageView.fillWithURL(place.mainImageUrl, placeholder: nil)
+      placeNameLabel.text = place.name
+      placeDescriptionLabel.text = place.summary
+      locationLabel.text = "23232"
+      scheduleLabel.text = place.schedule
+    }
   }
 }

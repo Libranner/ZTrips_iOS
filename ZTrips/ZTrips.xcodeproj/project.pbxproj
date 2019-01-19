@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64EB4C5E5DC090CD4353991B /* Pods_ZTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */; };
 		EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E721EFF05E003315CF /* AboutViewController.swift */; };
 		EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */; };
 		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
+		EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056ED21F2AF44003315CF /* MapViewController.swift */; };
 		EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39121EE653F001E5635 /* CustomLayout.swift */; };
 		EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */; };
 		EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */; };
@@ -30,9 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips.release.xcconfig"; sourceTree = "<group>"; };
+		E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1056E721EFF05E003315CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
+		EE1056ED21F2AF44003315CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EE3BF39121EE653F001E5635 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewController.swift; sourceTree = "<group>"; };
 		EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		EE8E694721EF7D9E00279C72 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		EE8E694C21EF8B6100279C72 /* SegueIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
+		F49C02F04A15E4C33BD1E82F /* Pods-ZTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +65,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EB4C5E5DC090CD4353991B /* Pods_ZTrips.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55A8AED6C5E6D07E446A4B27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F49C02F04A15E4C33BD1E82F /* Pods-ZTrips.debug.xcconfig */,
+				49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E64CE707457663CB1E88A131 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EE3BF39021EE6514001E5635 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +112,8 @@
 			children = (
 				EE6523DB21DD31A3000B5FCD /* ZTrips */,
 				EE6523DA21DD31A3000B5FCD /* Products */,
+				55A8AED6C5E6D07E446A4B27 /* Pods */,
+				E64CE707457663CB1E88A131 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +187,7 @@
 				EE6523DE21DD31A3000B5FCD /* ViewController.swift */,
 				EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */,
 				EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */,
+				EE1056ED21F2AF44003315CF /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE6523EB21DD31A4000B5FCD /* Build configuration list for PBXNativeTarget "ZTrips" */;
 			buildPhases = (
+				BB5A36431511889810A8FC85 /* [CP] Check Pods Manifest.lock */,
 				EE6523D521DD31A3000B5FCD /* Sources */,
 				EE6523D621DD31A3000B5FCD /* Frameworks */,
 				EE6523D721DD31A3000B5FCD /* Resources */,
+				B697960AA1B9FE317F436644 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +268,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B697960AA1B9FE317F436644 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB5A36431511889810A8FC85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZTrips-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE6523D521DD31A3000B5FCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -257,6 +325,7 @@
 				EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */,
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
+				EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
 				EE8E694D21EF8B6100279C72 /* SegueIdentifiers.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
@@ -404,16 +473,17 @@
 		};
 		EE6523EC21DD31A4000B5FCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49C02F04A15E4C33BD1E82F /* Pods-ZTrips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TGA26CY25M;
+				DEVELOPMENT_TEAM = KH7D2YUBPG;
 				INFOPLIST_FILE = ZTrips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.libranner.ZTrips;
+				PRODUCT_BUNDLE_IDENTIFIER = com.libranner.zaragozatrips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -422,16 +492,17 @@
 		};
 		EE6523ED21DD31A4000B5FCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TGA26CY25M;
+				DEVELOPMENT_TEAM = KH7D2YUBPG;
 				INFOPLIST_FILE = ZTrips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.libranner.ZTrips;
+				PRODUCT_BUNDLE_IDENTIFIER = com.libranner.zaragozatrips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
