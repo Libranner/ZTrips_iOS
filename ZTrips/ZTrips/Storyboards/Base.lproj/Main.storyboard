@@ -225,6 +225,9 @@
                                                         <integer key="value" value="30"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openMap:" destination="3zr-Vs-aul" eventType="touchUpInside" id="aE9-cK-ZMX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
