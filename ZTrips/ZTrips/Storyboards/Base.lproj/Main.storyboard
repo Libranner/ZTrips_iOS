@@ -270,9 +270,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="f4z-I3-xXq"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="lTX-my-dbC">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="e3K-GL-dOr"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="lTX-my-dbC"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
@@ -637,6 +635,6 @@
         <image name="places_logo" width="17" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NfV-Fs-p7J"/>
+        <segue reference="Dd7-E5-QL0"/>
     </inferredMetricsTieBreakers>
 </document>

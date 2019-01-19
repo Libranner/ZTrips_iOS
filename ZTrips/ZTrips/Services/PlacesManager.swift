@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import CoreData
 
 class PlaceManager {
   static let shared = PlaceManager()
   
+  func insertPlace(_ place: Place, context: NSManagedObjectContext) {
+    
+  }
+  
+  /*func filterByCategories(_ filters:[String]) -> [Place] {
+    
+  }*/
 }
