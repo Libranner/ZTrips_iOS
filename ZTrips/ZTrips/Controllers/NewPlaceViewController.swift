@@ -10,21 +10,47 @@ import UIKit
 
 class NewPlaceViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+  
+    @IBOutlet var newPlaceView: UIView!
+    
   var imagePickerController: UIImagePickerController!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var imageName: UITextField!
   
   @IBOutlet weak var takePhotoButton: UIButton!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     self.view.addGestureRecognizer(tapGesture)
   }
   
+    //MARK: Animations
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        aboutAnimate()
+    }
+    
+    func aboutAnimate() {
+        newPlaceView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+        newPlaceView.alpha = 0
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
+            self.newPlaceView.transform = CGAffineTransform.identity
+            self.newPlaceView.alpha = 1
+        }, completion: nil)
+        
+    }
+  
+
+    //MARK: Save a New Place...
+    
   @objc func hideKeyboard() {
     self.view.endEditing(true)
   }
-  //Take photo, please note this is not connected to any button, as a I don't know how to make an image button
+  
+    //take the photo
   @IBAction func tappedTakePhotoButton(_ sender: Any) {
     imagePickerController = UIImagePickerController()
     imagePickerController.delegate = self
@@ -49,10 +75,13 @@ class NewPlaceViewController: UIViewController, UINavigationControllerDelegate, 
     fileManager.createFile(atPath: imagePath, contents: photoData, attributes: nil)
   }
 
-  @IBAction func saveButton(_sender: Any){
+    //save new place
+  @IBAction func saveButton(_ sender: UIButton){
+      sender.pulseButton()
       savePhoto(photoName: imageName.text!)
       print(imageName.text as Any)
   }
+
 }
 
 

@@ -12,7 +12,7 @@ import CoreData
 private let reuseIdentifier = "Cell"
 
 class PlacesCollectionViewController: UICollectionViewController {
-  
+    
   var places : [Place] = [Place]()  
   
   override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -66,6 +66,7 @@ extension PlacesCollectionViewController {
       let vc = segue.destination as! PlaceDetailViewController
       let place = getPlace(index: collectionView.indexPathsForSelectedItems!.first!.item)
       vc.place = place
+
     }
     else if(segue.identifier == SegueIdentifiers.PLACE_FILTERS) {
       guard let navigationController = segue.destination as? UINavigationController,
@@ -104,6 +105,8 @@ extension PlacesCollectionViewController: FiltersTableViewControllerDelegate {
     //fetchNearbyPlaces(coordinate: mapView.camera.target)
   }
 }
+
+
 
 /*
 // MARK: - NSFetchedResultsControllerDelegate

@@ -12,8 +12,11 @@ import CoreLocation
 
 class ViewController: UIViewController {
 
+    let viewAnimation = ViewAnimation()
+    
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     //MARK: Notifications
     
     //setting the notification
@@ -23,7 +26,7 @@ class ViewController: UIViewController {
     notificationContent.sound = UNNotificationSound.default
     
     //setting the trigger with a timer
-    let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+    let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
     
     //setting the trigger with a location - unable to simulate
     
@@ -47,5 +50,10 @@ class ViewController: UIViewController {
       print(places!)
     }
   }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        destination.transitioningDelegate = viewAnimation
+    }
 }
 

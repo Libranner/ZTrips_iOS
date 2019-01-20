@@ -273,8 +273,10 @@
                     <connections>
                         <outlet property="locationLabel" destination="S2j-GY-XEL" id="KNc-yw-xDr"/>
                         <outlet property="mainImageView" destination="gex-Sg-YgZ" id="pKy-3p-d10"/>
+                        <outlet property="navigateToButton" destination="gKf-ko-E6M" id="Bs2-yJ-1sT"/>
                         <outlet property="placeDescriptionLabel" destination="UIa-RS-0He" id="vOW-7o-BNE"/>
                         <outlet property="placeNameLabel" destination="Ml6-BI-p5v" id="LA7-cT-liQ"/>
+                        <outlet property="removeButton" destination="mmu-In-OXp" id="iPd-b8-f41"/>
                         <outlet property="scheduleLabel" destination="mCg-Hs-oY2" id="Ijx-5R-Xyy"/>
                     </connections>
                 </viewController>
@@ -370,6 +372,9 @@
                         <viewLayoutGuide key="safeArea" id="mKr-E1-Clv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="about" id="sVv-sk-XRi"/>
+                    <connections>
+                        <outlet property="aboutView" destination="KSe-e8-GeN" id="rQt-Y0-H4T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsX-cT-hT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,7 +445,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="saveButtonWith_sender:" destination="0Vm-M9-Ltt" eventType="touchUpInside" id="WoU-6j-oRV"/>
+                                            <action selector="saveButton:" destination="0Vm-M9-Ltt" eventType="touchUpInside" id="gvb-hx-Qp2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -478,6 +483,7 @@
                     <connections>
                         <outlet property="imageName" destination="wpi-ZK-KqS" id="ulA-kW-RWk"/>
                         <outlet property="imageView" destination="M9Z-Ib-Itb" id="WYw-HD-sm1"/>
+                        <outlet property="newPlaceView" destination="tjX-Ri-Tqq" id="8Hz-HH-N9X"/>
                         <outlet property="takePhotoButton" destination="pNX-KG-4Pt" id="kr8-Ku-dSb"/>
                     </connections>
                 </viewController>

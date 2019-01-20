@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		64EB4C5E5DC090CD4353991B /* Pods_ZTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */; };
+		E373237A21F4D715003B95F8 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373237921F4D715003B95F8 /* ButtonAnimation.swift */; };
+		E373237E21F4F496003B95F8 /* ViewControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373237D21F4F496003B95F8 /* ViewControllerAnimation.swift */; };
 		EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E721EFF05E003315CF /* AboutViewController.swift */; };
 		EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */; };
 		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips.release.xcconfig"; sourceTree = "<group>"; };
+		E373237921F4D715003B95F8 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
+		E373237D21F4F496003B95F8 /* ViewControllerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimation.swift; sourceTree = "<group>"; };
 		E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1056E721EFF05E003315CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 				49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E373237821F4D6EE003B95F8 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				E373237921F4D715003B95F8 /* ButtonAnimation.swift */,
+				E373237D21F4F496003B95F8 /* ViewControllerAnimation.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		E64CE707457663CB1E88A131 /* Frameworks */ = {
@@ -136,6 +149,7 @@
 				EE6523FA21DD4E80000B5FCD /* Controllers */,
 				EE6523F921DD4E73000B5FCD /* Storyboards */,
 				EE6523F821DD4E62000B5FCD /* Assets */,
+				E373237821F4D6EE003B95F8 /* Animations */,
 				EE6523F321DD4BF1000B5FCD /* Services */,
 				EE6523EE21DD4AE8000B5FCD /* Models */,
 				EE6523DC21DD31A3000B5FCD /* AppDelegate.swift */,
@@ -315,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E373237A21F4D715003B95F8 /* ButtonAnimation.swift in Sources */,
 				EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */,
 				EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */,
 				EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */,
@@ -324,6 +339,7 @@
 				EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */,
 				EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */,
 				EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */,
+				E373237E21F4F496003B95F8 /* ViewControllerAnimation.swift in Sources */,
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
 				EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */,
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
