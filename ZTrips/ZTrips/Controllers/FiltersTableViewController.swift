@@ -6,7 +6,7 @@ protocol FiltersTableViewControllerDelegate: class {
 
 class FiltersTableViewController: UITableViewController {
   
-  private let filters = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento"]
+  private let filters = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento", "Parque"]
   
   weak var delegate: FiltersTableViewControllerDelegate?
   var selectedFilters: [String] = []

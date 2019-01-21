@@ -21,9 +21,11 @@ class ViewController: UIViewController {
     notificationContent.title = "Saludos Terricola"
     notificationContent.body = "Check out this new place near you"
     notificationContent.sound = UNNotificationSound.default
+    //notificationContent.userInfo =
+    
     
     //setting the trigger with a timer
-    let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+    //let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
     
     //setting the trigger with a location - unable to simulate
     
@@ -35,17 +37,11 @@ class ViewController: UIViewController {
 
     
     //setting the request
-    let notificationRequest = UNNotificationRequest(identifier: "ZaragozaTripsNotification", content: notificationContent, trigger: notificationTrigger)
+    //let notificationRequest = UNNotificationRequest(identifier: "ZaragozaTripsNotification", content: notificationContent, trigger: notificationTrigger)
 
     //sending the notification
-    UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+    //UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
 
-    
-    //MARK: DataDownloader
-    
-    DataDownloader().download { (places) in
-      print(places!)
-    }
   }
 }
 

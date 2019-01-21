@@ -13,6 +13,13 @@
 		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
 		EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056ED21F2AF44003315CF /* MapViewController.swift */; };
 		EE1056F821F3A852003315CF /* PlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056F721F3A852003315CF /* PlacesManager.swift */; };
+		EE1056FB21F3BAC7003315CF /* ZTrips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE1056F921F3BAC7003315CF /* ZTrips.xcdatamodeld */; };
+		EE1056FD21F3D450003315CF /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056FC21F3D450003315CF /* DataSync.swift */; };
+		EE1056FF21F4AF19003315CF /* UICollectionView+NSFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056FE21F4AF19003315CF /* UICollectionView+NSFetchedResultsController.swift */; };
+		EE10570121F4CED2003315CF /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE10570021F4CED2003315CF /* PlacesTableViewController.swift */; };
+		EE10570321F4D363003315CF /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE10570221F4D363003315CF /* PlaceTableViewCell.swift */; };
+		EE10570521F4DE59003315CF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE10570421F4DE59003315CF /* LocationService.swift */; };
+		EE10570721F51B7C003315CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE10570621F51B7C003315CF /* Constants.swift */; };
 		EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39121EE653F001E5635 /* CustomLayout.swift */; };
 		EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */; };
 		EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */; };
@@ -40,6 +47,13 @@
 		EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		EE1056ED21F2AF44003315CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EE1056F721F3A852003315CF /* PlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesManager.swift; sourceTree = "<group>"; };
+		EE1056FA21F3BAC7003315CF /* ZTrips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZTrips.xcdatamodel; sourceTree = "<group>"; };
+		EE1056FC21F3D450003315CF /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
+		EE1056FE21F4AF19003315CF /* UICollectionView+NSFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+NSFetchedResultsController.swift"; sourceTree = "<group>"; };
+		EE10570021F4CED2003315CF /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		EE10570221F4D363003315CF /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		EE10570421F4DE59003315CF /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		EE10570621F51B7C003315CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EE3BF39121EE653F001E5635 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewController.swift; sourceTree = "<group>"; };
 		EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -105,6 +119,7 @@
 				EE3BF39A21EE9273001E5635 /* AsyncImageView.swift */,
 				EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */,
 				EE8E694721EF7D9E00279C72 /* GradientView.swift */,
+				EE10570221F4D363003315CF /* PlaceTableViewCell.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -140,6 +155,7 @@
 				EE6523EE21DD4AE8000B5FCD /* Models */,
 				EE6523DC21DD31A3000B5FCD /* AppDelegate.swift */,
 				EE6523E821DD31A4000B5FCD /* Info.plist */,
+				EE1056FE21F4AF19003315CF /* UICollectionView+NSFetchedResultsController.swift */,
 			);
 			path = ZTrips;
 			sourceTree = "<group>";
@@ -149,6 +165,7 @@
 			children = (
 				EE6523EF21DD4B09000B5FCD /* Place.swift */,
 				EE6523F121DD4B76000B5FCD /* Coordinate.swift */,
+				EE1056F921F3BAC7003315CF /* ZTrips.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +177,8 @@
 				EE6523F621DD4C20000B5FCD /* ApiUrlCreator.swift */,
 				EE3BF39821EE91F2001E5635 /* ImageCache.swift */,
 				EE1056F721F3A852003315CF /* PlacesManager.swift */,
+				EE1056FC21F3D450003315CF /* DataSync.swift */,
+				EE10570421F4DE59003315CF /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,6 +210,7 @@
 				EE3BF39321EE6D79001E5635 /* PlacesCollectionViewController.swift */,
 				EE8E694921EF803500279C72 /* PlaceDetailViewController.swift */,
 				EE1056ED21F2AF44003315CF /* MapViewController.swift */,
+				EE10570021F4CED2003315CF /* PlacesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				EE8E694C21EF8B6100279C72 /* SegueIdentifiers.swift */,
+				EE10570621F51B7C003315CF /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -237,6 +258,11 @@
 				TargetAttributes = {
 					EE6523D821DD31A3000B5FCD = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -315,17 +341,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1056FF21F4AF19003315CF /* UICollectionView+NSFetchedResultsController.swift in Sources */,
 				EE8E694A21EF803500279C72 /* PlaceDetailViewController.swift in Sources */,
+				EE10570521F4DE59003315CF /* LocationService.swift in Sources */,
 				EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */,
 				EE3BF39921EE91F2001E5635 /* ImageCache.swift in Sources */,
 				EE6523F021DD4B09000B5FCD /* Place.swift in Sources */,
 				EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */,
+				EE10570721F51B7C003315CF /* Constants.swift in Sources */,
 				EE8E694821EF7D9E00279C72 /* GradientView.swift in Sources */,
+				EE10570121F4CED2003315CF /* PlacesTableViewController.swift in Sources */,
 				EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */,
 				EE3BF39221EE653F001E5635 /* CustomLayout.swift in Sources */,
 				EE3BF39421EE6D79001E5635 /* PlacesCollectionViewController.swift in Sources */,
+				EE10570321F4D363003315CF /* PlaceTableViewCell.swift in Sources */,
 				EE6523F521DD4C07000B5FCD /* DataDownloader.swift in Sources */,
 				EE3BF39B21EE9273001E5635 /* AsyncImageView.swift in Sources */,
+				EE1056FB21F3BAC7003315CF /* ZTrips.xcdatamodeld in Sources */,
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE1056F821F3A852003315CF /* PlacesManager.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
@@ -334,6 +366,7 @@
 				EE8E694D21EF8B6100279C72 /* SegueIdentifiers.swift in Sources */,
 				EE6523DD21DD31A3000B5FCD /* AppDelegate.swift in Sources */,
 				EE6523F221DD4B76000B5FCD /* Coordinate.swift in Sources */,
+				EE1056FD21F3D450003315CF /* DataSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +568,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE1056F921F3BAC7003315CF /* ZTrips.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE1056FA21F3BAC7003315CF /* ZTrips.xcdatamodel */,
+			);
+			currentVersion = EE1056FA21F3BAC7003315CF /* ZTrips.xcdatamodel */;
+			path = ZTrips.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE6523D121DD31A3000B5FCD /* Project object */;
 }

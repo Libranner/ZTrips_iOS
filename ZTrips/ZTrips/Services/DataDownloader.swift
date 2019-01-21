@@ -14,7 +14,7 @@ struct DataDownloader {
   // Contruimos el URL del archivo Json
   private let placesUrl = ApiUrlCreator.createUrl(path: "all_places.json")
   
-  func download(completion: @escaping ([Place]?) -> Void) {
+  func download(completion: @escaping ([PlaceObj]?) -> Void) {
     let session = URLSession.shared
     
     /// Aseguramos que esta tarea sea finalizada si el App está en background
@@ -38,8 +38,7 @@ struct DataDownloader {
       }
 
       /// Decodificamos el Json retornado y lo convertimos en un arreglo de structs `place`
-      let places = try? JSONDecoder().decode([Place].self, from: unWrappedData)
-      
+      let places = try? JSONDecoder().decode([PlaceObj].self, from: unWrappedData)
       /// Pasamos el arreglo al completion closure
       completion(places)
       

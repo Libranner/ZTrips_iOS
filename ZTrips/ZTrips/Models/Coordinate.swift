@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Coordinate: Codable {
+struct CoordinateObj: Codable {
   let latitude: Double
   let longitude: Double
   let radio: Double

@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Place: Codable {
+struct PlaceObj: Codable {
   let name: String
   let type: String
   let schedule: String
-  let coordinate: Coordinate
+  let coordinate: CoordinateObj
   let mainImageUrl: URL
   let website: String
   let summary: String

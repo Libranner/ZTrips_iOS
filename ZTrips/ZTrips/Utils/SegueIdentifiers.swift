@@ -11,5 +11,6 @@ import Foundation
 struct SegueIdentifiers {
   static let PLACE_DETAIL = "ShowPlaceDetail"
   static let PLACE_FILTERS = "ShowFilters"
+  static let SHOW_MAP = "ShowMap"
 }
 

@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     setupNotifications()
     setupGoogleMaps()
     
+    let tabViewController = self.window?.rootViewController as! UITabBarController
+    let nav =  tabViewController.viewControllers!.first as! UINavigationController
+    let controller = nav.topViewController as! PlacesTableViewController
+    controller.managedObjectContext = self.persistentContainer.viewContext
+    
+    LocationService.shared.start()
     return true
   }
   
@@ -88,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
      application to it. This property is optional since there are legitimate
      error conditions that could cause the creation of the store to fail.
      */
-    let container = NSPersistentContainer(name: "Test_MsterTSA_5")
+    let container = NSPersistentContainer(name: "ZTrips")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
       if let error = error as NSError? {
         // Replace this implementation with code to handle the error appropriately.

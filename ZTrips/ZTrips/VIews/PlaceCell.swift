@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class PlaceCell: UICollectionViewCell {
   
   @IBOutlet fileprivate weak var containerView: UIView!
@@ -24,7 +25,7 @@ class PlaceCell: UICollectionViewCell {
   var place: Place? {
     didSet {
       if let place = place {
-        imageView.fillWithURL(place.mainImageUrl, placeholder: nil)
+        imageView.fillWithURL(place.mainImageUrl!, placeholder: nil)
         captionLabel.text = place.name
         commentLabel.text = place.summary
       }
@@ -32,3 +33,4 @@ class PlaceCell: UICollectionViewCell {
   }
   
 }
+*/
