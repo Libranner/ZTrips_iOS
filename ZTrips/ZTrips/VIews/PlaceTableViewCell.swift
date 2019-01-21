@@ -20,11 +20,23 @@ class PlaceTableViewCell: UITableViewCell {
     containerView.layer.masksToBounds = true
   }
   
+  override func prepareForReuse() {
+    mainImageView.image = nil
+    titleLabel.text = ""
+  }
+  
   var place: Place? {
     didSet {
       if let place = place {
         if place.isCustom {
-          mainImageView.image = UIImage(contentsOfFile: place.mainImageUrl!.absoluteString)
+          mainImageView.image = nil
+          let fileManager = FileManager.default
+          if let docs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let file = docs.appendingPathComponent(place.mainImageUrl!.absoluteString)
+            if let image = UIImage(contentsOfFile: file.path){
+               mainImageView.image = image
+            }
+          }
         }
         else {
           mainImageView.fillWithURL(place.mainImageUrl!, placeholder: nil)

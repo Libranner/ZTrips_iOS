@@ -30,7 +30,13 @@ class PlaceDetailViewController: UIViewController {
   func setupScreen() {
     if let place = place {
       if place.isCustom {
-        mainImageView.image = UIImage(contentsOfFile: place.mainImageUrl!.absoluteString)
+        let fileManager = FileManager.default
+        if let docs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+          let file = docs.appendingPathComponent(place.mainImageUrl!.absoluteString)
+          if let image = UIImage(contentsOfFile: file.path){
+            mainImageView.image = image
+          }
+        }
       }
       else {
         mainImageView.fillWithURL(place.mainImageUrl!, placeholder: nil)
@@ -90,11 +96,11 @@ class PlaceDetailViewController: UIViewController {
         try context.save()
         let alert = UIAlertController(title: "Place removed", message: "\(name) has been removed",
           preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: {
+        let okAction = UIAlertAction(title: "Ok", style: .default){ _ in
           self.navigationController?.popViewController(animated: true)
-        })
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion:nil)
       }
       catch {
         let alert = UIAlertController(title: "Error", message: "An error has ocurred trying to remove \(name)", preferredStyle: .alert)

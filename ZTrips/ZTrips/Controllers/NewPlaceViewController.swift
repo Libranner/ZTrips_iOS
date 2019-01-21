@@ -10,13 +10,14 @@ import UIKit
 import CoreData
 
 class NewPlaceViewController: UIViewController, UINavigationControllerDelegate,
-UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
   
   var imagePickerController: UIImagePickerController!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var placeDescriptionTextView: UITextView!
   @IBOutlet weak var placeNameTextField: UITextField!
- 
+  @IBOutlet weak var scrollView: UIScrollView!
+  
   @IBOutlet weak var typeTextField: UITextField!
    var typePickerView: UIPickerView!
   private let types = Constants.FILTERS
@@ -30,10 +31,12 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     typePickerView = UIPickerView()
     typePickerView.delegate = self
     typeTextField.inputView = self.typePickerView
+    typeTextField.delegate = self
     
     placeNameTextField.layer.borderColor = UIColor.orange.cgColor
     placeNameTextField.layer.borderWidth = 1.0
     placeNameTextField.layer.cornerRadius = 6
+    placeNameTextField.delegate = self
     
     typeTextField.layer.borderColor = UIColor.orange.cgColor
     typeTextField.layer.borderWidth = 1.0
@@ -42,6 +45,18 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     placeDescriptionTextView.layer.borderWidth = 1
     placeDescriptionTextView.layer.borderColor = UIColor.orange.cgColor
     placeDescriptionTextView.layer.cornerRadius = 6
+    placeDescriptionTextView.delegate = self
+  }
+  
+  //MARK: - TextView Delegate
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    scrollView.setContentOffset(CGPoint(x: 0, y: textView.frame.origin.y), animated: true);
+  }
+  
+  //MARK: - TextField Delegate
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    scrollView.setContentOffset(CGPoint(x: 0, y: textField.frame.origin.y), animated: true);
+    return true
   }
   
   //MARK: - Picker Delegate
@@ -64,6 +79,7 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
   @objc func hideKeyboard() {
     self.view.endEditing(true)
+    scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentInset.top), animated: true)
   }
   //Take photo
   @IBAction func tappedTakePhotoButton(_ sender: Any) {
@@ -81,16 +97,20 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
   }
   
   //save the photo
-  func savePhoto() -> String {
+  func savePhoto() -> String? {
     let photo = imageView.image!
-    let fileManager = FileManager.default
-    let fileId = UUID().uuidString
-    let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString)
-      .appendingPathComponent(fileId)
-    let photoData = photo.pngData()
-    fileManager.createFile(atPath: imagePath, contents: photoData, attributes: nil)
-    
-    return imagePath
+
+    let fm = FileManager.default
+    if let docs = fm.urls(for: .documentDirectory, in: .userDomainMask).first {
+      let fileName = "\(UUID().uuidString).png"
+      let filePath = docs.appendingPathComponent(fileName)
+      if let photoData = photo.jpegData(compressionQuality: 0.5) {
+        try! photoData.write(to: filePath)
+      }
+      return fileName
+    }
+  
+    return nil
   }
   
   @IBAction func saveButtonTapped(_ sender: Any) {
@@ -109,6 +129,10 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
   }
   
   private func isValid() -> Bool{
+    guard imageView.image != nil else {
+      return false
+    }
+    
     guard placeNameTextField.text != nil && !placeDescriptionTextView.text!.isEmpty else {
       return false
     }
@@ -126,9 +150,13 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
   
   func save(context: NSManagedObjectContext) {
     let path = savePhoto()
+    guard path != nil else {
+      return
+    }
+    
     if let newPlace = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place {
       newPlace.name = placeNameTextField.text
-      newPlace.mainImageUrl = URL(string: path)
+      newPlace.mainImageUrl = URL(string: path!)
       newPlace.type = types[typePickerView.selectedRow(inComponent: 0)]
       newPlace.summary = placeDescriptionTextView.text
       newPlace.isCustom = true
@@ -150,6 +178,7 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
       }
       alert.addAction(goToAction)
       present(alert, animated: true, completion: { [weak self] in
+        self?.hideKeyboard()
         self?.cleanup()
       })
     }
