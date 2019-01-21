@@ -287,6 +287,7 @@
                     <connections>
                         <outlet property="locationLabel" destination="S2j-GY-XEL" id="KNc-yw-xDr"/>
                         <outlet property="mainImageView" destination="gex-Sg-YgZ" id="pKy-3p-d10"/>
+                        <outlet property="navigateToButton" destination="gKf-ko-E6M" id="4Iu-ck-5UB"/>
                         <outlet property="placeDescriptionLabel" destination="UIa-RS-0He" id="vOW-7o-BNE"/>
                         <outlet property="placeNameLabel" destination="Ml6-BI-p5v" id="LA7-cT-liQ"/>
                         <outlet property="removeButton" destination="mmu-In-OXp" id="66r-GO-9dR"/>
@@ -386,6 +387,9 @@
                         <viewLayoutGuide key="safeArea" id="mKr-E1-Clv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="about" id="sVv-sk-XRi"/>
+                    <connections>
+                        <outlet property="aboutView" destination="KSe-e8-GeN" id="eBw-UV-gjG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsX-cT-hT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -534,6 +538,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="M9Z-Ib-Itb" id="WYw-HD-sm1"/>
+                        <outlet property="newPlaceView" destination="tjX-Ri-Tqq" id="KDw-3Q-iba"/>
                         <outlet property="placeDescriptionTextView" destination="1Nd-ks-iMR" id="hUD-Y4-WY9"/>
                         <outlet property="placeNameTextField" destination="wpi-ZK-KqS" id="HNk-CY-gRj"/>
                         <outlet property="scrollView" destination="2sN-Gh-mAu" id="76H-FO-Wm0"/>

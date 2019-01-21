@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64EB4C5E5DC090CD4353991B /* Pods_ZTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */; };
+		E37323A121F67DB1003B95F8 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37323A021F67DB0003B95F8 /* ButtonAnimation.swift */; };
 		EE1056E921EFF05E003315CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E721EFF05E003315CF /* AboutViewController.swift */; };
 		EE1056EA21EFF05E003315CF /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */; };
 		EE1056EC21F163C6003315CF /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1056EB21F163C6003315CF /* FiltersTableViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		49A2F2842A4EFD55ABC091A4 /* Pods-ZTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZTrips/Pods-ZTrips.release.xcconfig"; sourceTree = "<group>"; };
+		E37323A021F67DB0003B95F8 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 		E3D309B55A728E1F6A542227 /* Pods_ZTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1056E721EFF05E003315CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EE1056E821EFF05E003315CF /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				EE3BF39621EE6EAD001E5635 /* PlaceCell.swift */,
 				EE8E694721EF7D9E00279C72 /* GradientView.swift */,
 				EE10570221F4D363003315CF /* PlaceTableViewCell.swift */,
+				E37323A021F67DB0003B95F8 /* ButtonAnimation.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				EE3BF39721EE6EAD001E5635 /* PlaceCell.swift in Sources */,
 				EE1056F821F3A852003315CF /* PlacesManager.swift in Sources */,
 				EE6523F721DD4C20000B5FCD /* ApiUrlCreator.swift in Sources */,
+				E37323A121F67DB1003B95F8 /* ButtonAnimation.swift in Sources */,
 				EE1056EE21F2AF44003315CF /* MapViewController.swift in Sources */,
 				EE6523DF21DD31A3000B5FCD /* ViewController.swift in Sources */,
 				EE8E694D21EF8B6100279C72 /* SegueIdentifiers.swift in Sources */,

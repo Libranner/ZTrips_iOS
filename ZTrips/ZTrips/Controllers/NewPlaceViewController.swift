@@ -17,12 +17,14 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
   @IBOutlet weak var placeDescriptionTextView: UITextView!
   @IBOutlet weak var placeNameTextField: UITextField!
   @IBOutlet weak var scrollView: UIScrollView!
-  
+  @IBOutlet var newPlaceView: UIView!
   @IBOutlet weak var typeTextField: UITextField!
-   var typePickerView: UIPickerView!
+  
+    var typePickerView: UIPickerView!
   private let types = Constants.FILTERS
   
   @IBOutlet weak var takePhotoButton: UIButton!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -47,7 +49,23 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     placeDescriptionTextView.layer.cornerRadius = 6
     placeDescriptionTextView.delegate = self
   }
-  
+    
+    //MARK: Animations
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        newPlaceAnimate()
+    }
+    
+    func newPlaceAnimate() {
+        newPlaceView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+        newPlaceView.alpha = 0
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
+            self.newPlaceView.transform = CGAffineTransform.identity
+            self.newPlaceView.alpha = 1
+        }, completion: nil)
+    }
+    
   //MARK: - TextView Delegate
   func textViewDidBeginEditing(_ textView: UITextView) {
     scrollView.setContentOffset(CGPoint(x: 0, y: textView.frame.origin.y), animated: true);
@@ -113,7 +131,10 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     return nil
   }
   
-  @IBAction func saveButtonTapped(_ sender: Any) {
+  @IBAction func saveButtonTapped(_ sender: UIButton) {
+    
+    sender.pulseButton() //button animation
+    
     if isValid() {
       let appDelegate = UIApplication.shared.delegate as? AppDelegate
       if let context = appDelegate?.persistentContainer.viewContext {

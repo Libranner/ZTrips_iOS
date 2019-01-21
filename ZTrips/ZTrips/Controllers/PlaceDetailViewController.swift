@@ -21,10 +21,14 @@ class PlaceDetailViewController: UIViewController {
   @IBOutlet weak var scheduleLabel: UILabel!
   @IBOutlet weak var removeButton: UIButton!
   @IBOutlet weak var typeLabel: UILabel!
-  
+  @IBOutlet weak var navigateToButton: UIButton!
+    
   override func viewDidLoad() {
       super.viewDidLoad()
+      startLabelAnimation()
+      startNavigateButtonAnimation()
       setupScreen()
+    
   }
   
   func setupScreen() {
@@ -84,7 +88,10 @@ class PlaceDetailViewController: UIViewController {
     }
   }
   
-  @IBAction func removeButtonTapped(_ sender: Any) {
+  @IBAction func removeButtonTapped(_ sender: UIButton) {
+    
+    sender.pulseButton() //Button Animation
+    
     if let place = place {
       let vc = self.navigationController?.viewControllers[0] as! PlacesTableViewController
       let context = vc.managedObjectContext!
@@ -110,4 +117,57 @@ class PlaceDetailViewController: UIViewController {
       }
     }
   }
+    
+    //MARK: Animations
+    
+    //Basic stuff:
+    func fadeIn(view: UIView) {
+        view.alpha = 1
+    }
+    
+    func fadeOut(view: UIView){
+        view.alpha = 0
+    }
+    
+    //where the magic happens:
+    func startLabelAnimation(){
+        let duration: Double = 1.5
+        
+        placeNameLabel.alpha = 0
+        placeDescriptionLabel.alpha = 0
+        locationLabel.alpha = 0
+        removeButton.alpha = 0
+        scheduleLabel.alpha = 0
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
+            self.fadeIn(view: self.placeNameLabel)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: 1.0, options: .curveEaseIn, animations: {
+            self.fadeIn(view: self.placeDescriptionLabel)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
+            self.fadeIn(view: self.locationLabel)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
+            self.fadeIn(view: self.scheduleLabel)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: 2.0, options: .curveLinear, animations: {
+            self.fadeIn(view: self.removeButton)
+        }, completion: nil)
+        
+    }
+    
+    func startNavigateButtonAnimation(){
+        let duration: Double = 1.0
+        
+        navigateToButton.transform = CGAffineTransform(scaleX: -1, y: 1)
+        
+        UIView.animate(withDuration: duration, delay: 1.0, options: .autoreverse, animations: {
+            self.navigateToButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion: nil)
+    }
 }
