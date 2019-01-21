@@ -6,11 +6,9 @@ protocol FiltersTableViewControllerDelegate: class {
 
 class FiltersTableViewController: UITableViewController {
   
-  private let filters = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento", "Parque"]
-  
+  private let filters = Constants.FILTERS
   weak var delegate: FiltersTableViewControllerDelegate?
   var selectedFilters: [String] = []
-  
   
   // MARK: - Actions
   @IBAction func donePressed(_ sender: AnyObject) {

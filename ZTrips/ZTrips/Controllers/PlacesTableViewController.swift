@@ -15,8 +15,10 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   var managedObjectContext: NSManagedObjectContext? = nil
   private var observer: NSObjectProtocol?
   private var dataSync: DataSync?
-  private var selectedFilters = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento"]
+  private var selectedFilters = Constants.FILTERS
   private var notificationSetted = false
+  
+  var fetchedResultsController: NSFetchedResultsController<Place>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,7 +28,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     }
     tableView?.backgroundColor = UIColor.white
     tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
-    
+    setupFetchResultController()
     sync()
     observer = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { (notification) in
       self.sync()
@@ -44,7 +46,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
         DispatchQueue.main.async {
           try? context.save()
           self?.dataSync = nil
-          
+          self?.reloadData()
           if !(self?.notificationSetted)! {
             PlacesManager.shared.setupInPlaceNotifications(context: context)
             self?.notificationSetted = true
@@ -60,13 +62,11 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   
   // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return fetchedResultsController.sections?.count ?? 0
+    return 1
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let sectionInfo = fetchedResultsController.sections![section]
-    let c = sectionInfo.numberOfObjects
-    return c
+    return fetchedResultsController.sections?[section].numberOfObjects ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -131,9 +131,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   }
   
   // MARK: - Fetched results controller
-  
-  lazy var fetchedResultsController: NSFetchedResultsController<Place>! = {
-    
+  func setupFetchResultController() {
     let fetchRequest: NSFetchRequest<Place> = Place.fetchRequest()
     
     // Set the batch size to a suitable number.
@@ -142,27 +140,26 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     // Edit the sort key as appropriate.
     let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
+
+    fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:
+      self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
     
-    //fetchRequest.predicate = NSPredicate(format: "type IN %@", selectedFilters)
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:
-      self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
-    
-    aFetchedResultsController.delegate = self
+    fetchedResultsController.delegate = self
+  }
+  
+  func reloadData() {
+    fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "type IN %@", selectedFilters)
     
     do {
-      try aFetchedResultsController.performFetch()
+      try fetchedResultsController.performFetch()
     } catch {
       // Replace this implementation with code to handle the error appropriately.
       // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
       let nserror = error as NSError
       fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
     }
-    
-    return aFetchedResultsController
-  }()
+    self.tableView.reloadData()
+  }
   
   func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
@@ -207,12 +204,10 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
 extension PlacesTableViewController: FiltersTableViewControllerDelegate {
   func filtersController(_ controller: FiltersTableViewController, didSelectFilters filters: [String]) {
     selectedFilters = filters
-    /*if selectedFilters.count > 0 {
-      fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "type IN %@", selectedFilters)
-      try! fetchedResultsController.performFetch()
-      self.tableView.reloadData()
+    if selectedFilters.count > 0 {
+      reloadData()
     }
-    */
+ 
     dismiss(animated: true)
   }
 }

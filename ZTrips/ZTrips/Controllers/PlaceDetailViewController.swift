@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import CoreLocation
 import MapKit
 import CoreData
 
-class PlaceDetailViewController: UIViewController, CLLocationManagerDelegate {
+class PlaceDetailViewController: UIViewController {
 
   var place: Place?
-  var locationManager:CLLocationManager!
 
   @IBOutlet weak var mainImageView: AsyncImageView!
   @IBOutlet weak var placeNameLabel: UILabel!
@@ -61,17 +59,6 @@ class PlaceDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  func determineCurrentLocation() {
-    locationManager = CLLocationManager()
-    locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    locationManager.requestAlwaysAuthorization()
-    
-    if CLLocationManager.locationServicesEnabled() {
-      locationManager.startUpdatingLocation()
-    }
-  }
-  
   @IBAction func openMap(_ sender: Any) {
     if let place = place, let coordinate = place.coordinate {
       let latitude:CLLocationDegrees =  coordinate.latitude
@@ -91,28 +78,30 @@ class PlaceDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let userLocation:CLLocation = locations[0] as CLLocation
-    
-    if let place = place, let coordinate = place.coordinate {
-      
-    }
-    
-    manager.stopUpdatingLocation()
-  }
-  
   @IBAction func removeButtonTapped(_ sender: Any) {
     if let place = place {
       let vc = self.navigationController?.viewControllers[0] as! PlacesTableViewController
       let context = vc.managedObjectContext!
       context.delete(place)
-      try? context.save()
+      
+      let name = place.name!
+      
+      do {
+        try context.save()
+        let alert = UIAlertController(title: "Place removed", message: "\(name) has been removed",
+          preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: {
+          self.navigationController?.popViewController(animated: true)
+        })
+      }
+      catch {
+        let alert = UIAlertController(title: "Error", message: "An error has ocurred trying to remove \(name)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+      }
     }
-  }
-  
-  
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
-  {
-    print("Error \(error)")
   }
 }

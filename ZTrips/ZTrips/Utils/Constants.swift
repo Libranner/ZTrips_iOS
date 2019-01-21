@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Constants {
+  static let FILTERS = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento", "Parque"]
+}

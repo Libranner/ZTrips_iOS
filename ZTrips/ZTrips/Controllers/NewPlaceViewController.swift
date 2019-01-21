@@ -19,7 +19,7 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
  
   @IBOutlet weak var typeTextField: UITextField!
    var typePickerView: UIPickerView!
-  private let types = ["Comida & Bebida", "Museo & Monumentos",  "Entretenimiento"]
+  private let types = Constants.FILTERS
   
   @IBOutlet weak var takePhotoButton: UIButton!
   override func viewDidLoad() {
@@ -140,7 +140,33 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
         newPlace.coordinate = newCoordinate
       }
     }
-    try! context.save()
+    do {
+      try context.save()
+      let alert = UIAlertController(title: "Place added", message: "Place has been added", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "Ok", style: .default)
+      alert.addAction(okAction)
+      let goToAction = UIAlertAction(title: "Go to Places List", style: .cancel) { _ in
+        self.tabBarController?.selectedIndex = 0
+      }
+      alert.addAction(goToAction)
+      present(alert, animated: true, completion: { [weak self] in
+        self?.cleanup()
+      })
+    }
+    catch {
+      let alert = UIAlertController(title: "Error", message: "An error has ocurred trying to create this place", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "Ok", style: .default)
+      alert.addAction(okAction)
+      present(alert, animated: true, completion: nil)
+    }
+  }
+  
+  func cleanup() {
+    typeTextField.text = ""
+    placeDescriptionTextView.text = ""
+    placeNameTextField.text = ""
+    imageView.image = nil
+    takePhotoButton.isHidden = false
   }
 }
 
