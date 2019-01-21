@@ -6,6 +6,15 @@
 //  Copyright © 2019 Libranner Leonel Santos Espinal. All rights reserved.
 //
 
+//Esta es una animacion para los view controllers, usando la transicion, se deberia de llamar con los segue, pero....
+//Este pedacito de codigo (see below) va en el ViewController que queremos animar, o en la parte de la transicion
+
+//let viewAnimations = ViewAnimation()
+//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    let destination = segue.destination
+//    destination.transitioningDelegate = viewAnimation
+//}
+
 import UIKit
 
 class ViewAnimation: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
@@ -61,9 +70,5 @@ class ViewAnimation: NSObject, UIViewControllerAnimatedTransitioning, UIViewCont
     
 }
 
-//let viewAnimations = ViewAnimation()
-//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    let destination = segue.destination
-//    destination.transitioningDelegate = viewAnimation
-//}
+
 

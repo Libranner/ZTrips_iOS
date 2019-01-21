@@ -618,6 +618,7 @@
                         <outlet property="mapCenterPinImage" destination="Niv-Yp-mMk" id="jFM-Wn-eqm"/>
                         <outlet property="mapView" destination="nOu-hv-gMq" id="3MU-eu-5q2"/>
                         <outlet property="pinImageVerticalConstraint" destination="tKc-Jq-DMx" id="lAM-1K-we8"/>
+                        <outlet property="theMap" destination="nOu-hv-gMq" id="jSl-kg-2Xf"/>
                         <segue destination="3zr-Vs-aul" kind="show" identifier="ShowPlaceDetail" id="NfV-Fs-p7J"/>
                     </connections>
                 </viewController>

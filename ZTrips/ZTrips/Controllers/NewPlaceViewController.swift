@@ -29,10 +29,10 @@ class NewPlaceViewController: UIViewController, UINavigationControllerDelegate, 
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        aboutAnimate()
+        newPlaceAnimate()
     }
     
-    func aboutAnimate() {
+    func newPlaceAnimate() {
         newPlaceView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
         newPlaceView.alpha = 0
         
