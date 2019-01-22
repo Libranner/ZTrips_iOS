@@ -11,9 +11,8 @@ import CoreData
 import CoreLocation
 import UserNotifications
 
-class PlacesManager {
-  static let shared = PlacesManager()
-  
+class NotificationsHelper {
+  static let shared = NotificationsHelper()
   
   func setupInPlaceNotifications(context: NSManagedObjectContext) {
     let notificationCenter = UNUserNotificationCenter.current()
