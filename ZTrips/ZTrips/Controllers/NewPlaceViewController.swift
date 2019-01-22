@@ -57,12 +57,12 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     func newPlaceAnimate() {
-        newPlaceView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
-        newPlaceView.alpha = 0
+        scrollView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+        scrollView.alpha = 0
         
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
-            self.newPlaceView.transform = CGAffineTransform.identity
-            self.newPlaceView.alpha = 1
+            self.scrollView.transform = CGAffineTransform.identity
+            self.scrollView.alpha = 1
         }, completion: nil)
     }
     
@@ -131,10 +131,7 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     return nil
   }
   
-  @IBAction func saveButtonTapped(_ sender: UIButton) {
-    
-    sender.pulseButton() //button animation
-    
+  @IBAction func saveButtonTapped(_ sender: UIButton) {    
     if isValid() {
       let appDelegate = UIApplication.shared.delegate as? AppDelegate
       if let context = appDelegate?.persistentContainer.viewContext {

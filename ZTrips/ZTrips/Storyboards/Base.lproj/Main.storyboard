@@ -389,6 +389,7 @@
                     <tabBarItem key="tabBarItem" title="" image="about" id="sVv-sk-XRi"/>
                     <connections>
                         <outlet property="aboutView" destination="KSe-e8-GeN" id="eBw-UV-gjG"/>
+                        <outlet property="mainStackView" destination="PZ1-b3-VdI" id="XbR-Ee-0My"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsX-cT-hT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -794,14 +795,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="about" width="34" height="34"/>
+        <image name="about" width="30" height="30"/>
         <image name="add_place" width="17" height="25"/>
         <image name="camera" width="16" height="14"/>
         <image name="clock" width="375" height="375"/>
         <image name="location" width="12" height="12"/>
         <image name="logo" width="610" height="232"/>
         <image name="logo_usj" width="248" height="72"/>
-        <image name="places_logo" width="17" height="17"/>
+        <image name="places_logo" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Mlo-cN-GLI"/>

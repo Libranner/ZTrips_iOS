@@ -10,9 +10,10 @@ import UIKit
 
 class AboutViewController: UIViewController {
 
-    @IBOutlet var aboutView: UIView!
-    
-    override func viewDidLoad() {
+  @IBOutlet var aboutView: UIView!
+  @IBOutlet weak var mainStackView: UIStackView!
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
     }
     
@@ -24,13 +25,12 @@ class AboutViewController: UIViewController {
     }
     
     func aboutAnimate() {
-        aboutView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
-        aboutView.alpha = 0
+        mainStackView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+        mainStackView.alpha = 0
         
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
-            self.aboutView.transform = CGAffineTransform.identity
-            self.aboutView.alpha = 1
+            self.mainStackView.transform = CGAffineTransform.identity
+            self.mainStackView.alpha = 1
         }, completion: nil)
-        
     }
 }

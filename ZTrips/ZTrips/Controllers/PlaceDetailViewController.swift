@@ -69,7 +69,9 @@ class PlaceDetailViewController: UIViewController {
     }
   }
   
-  @IBAction func openMap(_ sender: Any) {
+  @IBAction func openMap(_ sender: UIButton) {
+    sender.pulseButton()
+    
     if let place = place, let coordinate = place.coordinate {
       let latitude:CLLocationDegrees =  coordinate.latitude
       let longitude:CLLocationDegrees =  coordinate.longitude
