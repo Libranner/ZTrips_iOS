@@ -9,9 +9,7 @@
 import UIKit
 import CoreData
 
-class PlacesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UINavigationControllerDelegate {
-  
-    
+class PlacesTableViewController: UITableViewController {
   var thumbnailZoomTransitionAnimator: ZoomTransitionAnimator?
   var transitionThumbnail: UIImageView?
     
@@ -21,8 +19,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   private var dataSync: DataSync?
   private var selectedFilters = Constants.FILTERS
   private var firstTime = false
-  
-  var fetchedResultsController: NSFetchedResultsController<Place>!
+  private var fetchedResultsController: NSFetchedResultsController<Place>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,23 +39,6 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     /// Configuramos el Refresh Control para el Tableview
     setupRefreshControl()
   }
-    
-    //MARK: Animation
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        if operation == .push {
-            guard let transitionThumbnail = transitionThumbnail, let ttsv = transitionThumbnail.superview
-                else {
-                return nil}
-            
-            thumbnailZoomTransitionAnimator = ZoomTransitionAnimator()
-            thumbnailZoomTransitionAnimator?.thumbnailFrame = ttsv.convert(transitionThumbnail.frame, to: nil)
-        }
-        thumbnailZoomTransitionAnimator?.operation = operation
-        
-        return thumbnailZoomTransitionAnimator
-    }
-    
   
   // MARK: - Refresh Control Setup
   fileprivate func setupRefreshControl() {
@@ -100,7 +80,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
           self?.dataSync = nil
           if !(self?.firstTime)! {
             self?.reloadData()
-            PlacesManager.shared.setupInPlaceNotifications(context: context)
+            NotificationsHelper.shared.setupInPlaceNotifications(context: context)
             self?.firstTime = true
           }
         }
@@ -197,6 +177,50 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     }
   }
   
+  
+ 
+  @IBAction func showFiltersTapped(_ sender: Any) {
+    self.performSegue(withIdentifier: SegueIdentifiers.PLACE_FILTERS, sender: self)
+  }
+}
+
+extension PlacesTableViewController: UINavigationControllerDelegate {
+  //MARK: Animation
+  func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    
+    let useAnimation = (toVC as? PlaceDetailViewController != nil || fromVC as? PlaceDetailViewController != nil)
+    guard useAnimation else {
+      return nil
+    }
+    
+    if operation == .push {
+      guard let transitionThumbnail = transitionThumbnail, let ttsv = transitionThumbnail.superview
+        else {
+          return nil
+      }
+      
+      thumbnailZoomTransitionAnimator = ZoomTransitionAnimator()
+      thumbnailZoomTransitionAnimator?.thumbnailFrame = ttsv.convert(transitionThumbnail.frame, to: nil)
+    }
+    thumbnailZoomTransitionAnimator?.operation = operation
+    
+    return thumbnailZoomTransitionAnimator
+  }
+}
+
+extension PlacesTableViewController: FiltersTableViewControllerDelegate {
+  func filtersController(_ controller: FiltersTableViewController, didSelectFilters filters: [String]) {
+    selectedFilters = filters
+    if selectedFilters.count > 0 {
+      reloadData()
+    }
+ 
+    dismiss(animated: true)
+  }
+}
+
+extension PlacesTableViewController: NSFetchedResultsControllerDelegate {
+
   // MARK: - Fetched results controller
   func setupFetchResultController() {
     let fetchRequest: NSFetchRequest<Place> = Place.fetchRequest()
@@ -207,7 +231,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     // Edit the sort key as appropriate.
     let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
-
+    
     fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:
       self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
     
@@ -261,20 +285,5 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
-  }
- 
-  @IBAction func showFiltersTapped(_ sender: Any) {
-    self.performSegue(withIdentifier: SegueIdentifiers.PLACE_FILTERS, sender: self)
-  }
-}
-
-extension PlacesTableViewController: FiltersTableViewControllerDelegate {
-  func filtersController(_ controller: FiltersTableViewController, didSelectFilters filters: [String]) {
-    selectedFilters = filters
-    if selectedFilters.count > 0 {
-      reloadData()
-    }
- 
-    dismiss(animated: true)
   }
 }

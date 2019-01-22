@@ -27,6 +27,10 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupScreen()
+  }
+  
+  func setupScreen() {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     self.view.addGestureRecognizer(tapGesture)
     
@@ -49,22 +53,6 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     placeDescriptionTextView.layer.cornerRadius = 6
     placeDescriptionTextView.delegate = self
   }
-    
-    //MARK: Animations
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        newPlaceAnimate()
-    }
-    
-    func newPlaceAnimate() {
-        scrollView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
-        scrollView.alpha = 0
-        
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
-            self.scrollView.transform = CGAffineTransform.identity
-            self.scrollView.alpha = 1
-        }, completion: nil)
-    }
     
   //MARK: - TextView Delegate
   func textViewDidBeginEditing(_ textView: UITextView) {
@@ -114,23 +102,6 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     takePhotoButton.isHidden = true
   }
   
-  //save the photo
-  func savePhoto() -> String? {
-    let photo = imageView.image!
-
-    let fm = FileManager.default
-    if let docs = fm.urls(for: .documentDirectory, in: .userDomainMask).first {
-      let fileName = "\(UUID().uuidString).png"
-      let filePath = docs.appendingPathComponent(fileName)
-      if let photoData = photo.jpegData(compressionQuality: 0.5) {
-        try! photoData.write(to: filePath)
-      }
-      return fileName
-    }
-  
-    return nil
-  }
-  
   @IBAction func saveButtonTapped(_ sender: UIButton) {    
     if isValid() {
       let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -167,7 +138,12 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
   }
   
   func save(context: NSManagedObjectContext) {
-    let path = savePhoto()
+    
+    guard let image = imageView.image else {
+      return
+    }
+    
+    let path = ImagePersistenceHelper().saveImage(image: image)
     guard path != nil else {
       return
     }
@@ -214,6 +190,22 @@ UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, U
     placeNameTextField.text = ""
     imageView.image = nil
     takePhotoButton.isHidden = false
+  }
+  
+  //MARK: Animations
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    newPlaceAnimate()
+  }
+  
+  func newPlaceAnimate() {
+    scrollView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+    scrollView.alpha = 0
+    
+    UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
+      self.scrollView.transform = CGAffineTransform.identity
+      self.scrollView.alpha = 1
+    }, completion: nil)
   }
 }
 

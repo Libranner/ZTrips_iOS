@@ -13,6 +13,7 @@ import CoreData
 class PlaceDetailViewController: UIViewController {
 
   var place: Place?
+  var firstTime = true
 
   @IBOutlet weak var mainImageView: AsyncImageView!
   @IBOutlet weak var placeNameLabel: UILabel!
@@ -22,32 +23,24 @@ class PlaceDetailViewController: UIViewController {
   @IBOutlet weak var removeButton: UIButton!
   @IBOutlet weak var typeLabel: UILabel!
   @IBOutlet weak var navigateToButton: UIButton!
-    
+  
   override func viewDidLoad() {
       super.viewDidLoad()
-      setupScreen()
   }
     
-    override func viewDidAppear(_ animated: Bool) {
-        startLabelAnimation()
-        startNavigateButtonAnimation()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if firstTime {
+      setupScreen()
+      startLabelAnimation()
+      startNavigateButtonAnimation()
     }
+    firstTime = false
+  }
     
   func setupScreen() {
     if let place = place {
-      if place.isCustom {
-        let fileManager = FileManager.default
-        if let docs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-          let file = docs.appendingPathComponent(place.mainImageUrl!.absoluteString)
-          if let image = UIImage(contentsOfFile: file.path){
-            mainImageView.image = image
-          }
-        }
-      }
-      else {
-        mainImageView.fillWithURL(place.mainImageUrl!, placeholder: nil)
-      }
-      
+      ImagePersistenceHelper().loadImage(destinationImageView: mainImageView, place: place)
       placeNameLabel.text = place.name
       placeDescriptionLabel.text = place.summary
       scheduleLabel.text = place.schedule
@@ -131,7 +124,7 @@ class PlaceDetailViewController: UIViewController {
 
     //where the magic happens:
     func startLabelAnimation(){
-        let duration: Double = 1.5
+        let duration: Double = 1
 
         placeNameLabel.alpha = 0
         placeDescriptionLabel.alpha = 0
@@ -143,7 +136,7 @@ class PlaceDetailViewController: UIViewController {
             self.fadeIn(view: self.placeNameLabel)
         }, completion: nil)
 
-        UIView.animate(withDuration: duration, delay: 1.0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: duration, delay: 0.5, options: .curveEaseIn, animations: {
             self.fadeIn(view: self.placeDescriptionLabel)
         }, completion: nil)
 
@@ -155,18 +148,16 @@ class PlaceDetailViewController: UIViewController {
             self.fadeIn(view: self.scheduleLabel)
         }, completion: nil)
 
-        UIView.animate(withDuration: duration, delay: 2.0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0.4, options: .curveLinear, animations: {
             self.fadeIn(view: self.removeButton)
         }, completion: nil)
 
     }
 
     func startNavigateButtonAnimation(){
-        let duration: Double = 1.0
-
+        let duration: Double = 0.4
         navigateToButton.transform = CGAffineTransform(scaleX: -1, y: 1)
-
-        UIView.animate(withDuration: duration, delay: 1.0, options: .autoreverse, animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: .autoreverse, animations: {
             self.navigateToButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         }, completion: nil)
     }

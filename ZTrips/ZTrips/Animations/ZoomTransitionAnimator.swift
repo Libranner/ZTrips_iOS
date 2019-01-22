@@ -10,7 +10,7 @@ import UIKit
 
 class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let duration: TimeInterval = 2.0
+    private let duration: TimeInterval = 1.0
     var operation: UINavigationController.Operation = .push
     var thumbnailFrame = CGRect.zero
     

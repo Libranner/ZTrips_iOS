@@ -16,21 +16,20 @@ class AboutViewController: UIViewController {
   override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    //MARK: Animation
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         aboutAnimate()
     }
+  
+  //MARK: Animation
+  func aboutAnimate() {
+      mainStackView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
+      mainStackView.alpha = 0
     
-    func aboutAnimate() {
-        mainStackView.transform = CGAffineTransform.init(translationX: 0, y: +view.bounds.size.height )
-        mainStackView.alpha = 0
-        
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
-            self.mainStackView.transform = CGAffineTransform.identity
-            self.mainStackView.alpha = 1
-        }, completion: nil)
-    }
+      UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: .curveLinear, animations: {
+          self.mainStackView.transform = CGAffineTransform.identity
+          self.mainStackView.alpha = 1
+      }, completion: nil)
+  }
 }

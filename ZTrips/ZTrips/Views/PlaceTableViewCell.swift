@@ -28,19 +28,7 @@ class PlaceTableViewCell: UITableViewCell {
   var place: Place? {
     didSet {
       if let place = place {
-        if place.isCustom {
-          mainImageView.image = nil
-          let fileManager = FileManager.default
-          if let docs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let file = docs.appendingPathComponent(place.mainImageUrl!.absoluteString)
-            if let image = UIImage(contentsOfFile: file.path){
-               mainImageView.image = image
-            }
-          }
-        }
-        else {
-          mainImageView.fillWithURL(place.mainImageUrl!, placeholder: nil)
-        }
+        ImagePersistenceHelper().loadImage(destinationImageView: mainImageView, place: place)
         mainImageView.contentMode = .scaleAspectFill
         titleLabel.text = place.name
       }
