@@ -16,7 +16,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   private var observer: NSObjectProtocol?
   private var dataSync: DataSync?
   private var selectedFilters = Constants.FILTERS
-  private var notificationSetted = false
+  private var firstTime = false
   
   var fetchedResultsController: NSFetchedResultsController<Place>!
   
@@ -33,6 +33,34 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     observer = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { (notification) in
       self.sync()
     }
+    
+    /// Configuramos el Refresh Control para el Tableview
+    setupRefreshControl()
+  }
+  
+  // MARK: - Refresh Control Setup
+  fileprivate func setupRefreshControl() {
+    //Configuramos el Refresh Control y lo asignamos al Tableview
+    let refreshControl = UIRefreshControl()
+    refreshControl.tintColor = .red
+    tableView.refreshControl = refreshControl
+    //Indicamos el target Action que se llamará cada vez el Refresh Control cambie de valor
+    refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+  }
+  
+  // Action que se llamará cuando el Refresh Control cambie de valor
+  @objc func refreshControlAction(_ sender: UIRefreshControl) {
+    sender.beginRefreshing()
+    sync()
+  }
+  
+  // MARK: - Deinit
+  deinit {
+    // Nos aseguramos de remover el Observer para liberar la memoria
+    if observer != nil {
+      NotificationCenter.default.removeObserver(observer!)
+      observer = nil
+    }
   }
   
   private func sync() {
@@ -45,11 +73,13 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
       dataSync!.updateFromServer { [weak self] in
         DispatchQueue.main.async {
           try? context.save()
+          // Indicamos al Refresh Control que la carga ha terminado
+          self?.tableView.refreshControl?.endRefreshing()
           self?.dataSync = nil
-          self?.reloadData()
-          if !(self?.notificationSetted)! {
+          if !(self?.firstTime)! {
+            self?.reloadData()
             PlacesManager.shared.setupInPlaceNotifications(context: context)
-            self?.notificationSetted = true
+            self?.firstTime = true
           }
         }
       }
@@ -80,6 +110,11 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Return false if you do not want the specified item to be editable.
     return true
+  }
+  
+  override func tableView(_ tableView: UITableView, editingStyleForRowAt
+    indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    return .none
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
