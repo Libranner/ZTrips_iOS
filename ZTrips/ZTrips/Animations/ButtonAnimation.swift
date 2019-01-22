@@ -6,6 +6,8 @@
 //  Copyright © 2019 Libranner Leonel Santos Espinal. All rights reserved.
 //
 
+//Use this to animate UIButton
+
 import Foundation
 import UIKit
 

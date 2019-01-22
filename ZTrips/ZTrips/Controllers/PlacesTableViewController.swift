@@ -9,8 +9,12 @@
 import UIKit
 import CoreData
 
-class PlacesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class PlacesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UINavigationControllerDelegate {
   
+    
+  var thumbnailZoomTransitionAnimator: ZoomTransitionAnimator?
+  var transitionThumbnail: UIImageView?
+    
   private let reuseIdentifier = "Cell"
   var managedObjectContext: NSManagedObjectContext? = nil
   private var observer: NSObjectProtocol?
@@ -22,6 +26,7 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.delegate = self
     
     if let patternImage = UIImage(named: "Pattern") {
       view.backgroundColor = UIColor(patternImage: patternImage)
@@ -37,6 +42,23 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
     /// Configuramos el Refresh Control para el Tableview
     setupRefreshControl()
   }
+    
+    //MARK: Animation
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if operation == .push {
+            guard let transitionThumbnail = transitionThumbnail, let ttsv = transitionThumbnail.superview
+                else {
+                return nil}
+            
+            thumbnailZoomTransitionAnimator = ZoomTransitionAnimator()
+            thumbnailZoomTransitionAnimator?.thumbnailFrame = ttsv.convert(transitionThumbnail.frame, to: nil)
+        }
+        thumbnailZoomTransitionAnimator?.operation = operation
+        
+        return thumbnailZoomTransitionAnimator
+    }
+    
   
   // MARK: - Refresh Control Setup
   fileprivate func setupRefreshControl() {
@@ -138,7 +160,17 @@ class PlacesTableViewController: UITableViewController, NSFetchedResultsControll
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.performSegue(withIdentifier: SegueIdentifiers.PLACE_DETAIL, sender: self)
+
+    let cell = tableView.cellForRow(at: indexPath) as? PlaceTableViewCell
+    transitionThumbnail = cell?.mainImageView
+    
+    
+    //let placeDetailViewController = PlaceDetailViewController()
+    //placeDetailViewController.place = fetchedResultsController.object(at: indexPath)
+    //navigationController?.pushViewController(placeDetailViewController, animated: true)
+    
+   self.performSegue(withIdentifier: SegueIdentifiers.PLACE_DETAIL, sender: self)
+    
   }
   
   func configureCell(_ cell: PlaceTableViewCell, withPlace place: Place) {

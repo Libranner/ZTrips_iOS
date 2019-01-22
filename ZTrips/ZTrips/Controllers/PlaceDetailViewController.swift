@@ -25,12 +25,14 @@ class PlaceDetailViewController: UIViewController {
     
   override func viewDidLoad() {
       super.viewDidLoad()
-      startLabelAnimation()
-      startNavigateButtonAnimation()
       setupScreen()
-    
   }
-  
+    
+    override func viewDidAppear(_ animated: Bool) {
+        startLabelAnimation()
+        startNavigateButtonAnimation()
+    }
+    
   func setupScreen() {
     if let place = place {
       if place.isCustom {
@@ -126,48 +128,44 @@ class PlaceDetailViewController: UIViewController {
     func fadeIn(view: UIView) {
         view.alpha = 1
     }
-    
-    func fadeOut(view: UIView){
-        view.alpha = 0
-    }
-    
+
     //where the magic happens:
     func startLabelAnimation(){
         let duration: Double = 1.5
-        
+
         placeNameLabel.alpha = 0
         placeDescriptionLabel.alpha = 0
         locationLabel.alpha = 0
         removeButton.alpha = 0
         scheduleLabel.alpha = 0
-        
+
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             self.fadeIn(view: self.placeNameLabel)
         }, completion: nil)
-        
+
         UIView.animate(withDuration: duration, delay: 1.0, options: .curveEaseIn, animations: {
             self.fadeIn(view: self.placeDescriptionLabel)
         }, completion: nil)
-        
+
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             self.fadeIn(view: self.locationLabel)
         }, completion: nil)
-        
+
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             self.fadeIn(view: self.scheduleLabel)
         }, completion: nil)
-        
+
         UIView.animate(withDuration: duration, delay: 2.0, options: .curveLinear, animations: {
             self.fadeIn(view: self.removeButton)
         }, completion: nil)
-        
+
     }
-    
+
     func startNavigateButtonAnimation(){
         let duration: Double = 1.0
-        
+
         navigateToButton.transform = CGAffineTransform(scaleX: -1, y: 1)
-        
+
         UIView.animate(withDuration: duration, delay: 1.0, options: .autoreverse, animations: {
             self.navigateToButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         }, completion: nil)
