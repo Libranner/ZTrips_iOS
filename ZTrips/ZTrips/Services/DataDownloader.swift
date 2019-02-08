@@ -20,6 +20,7 @@ struct DataDownloader {
     /// Aseguramos que esta tarea sea finalizada si el App está en background
     let backgrounTask = UIApplication.shared.beginBackgroundTask {
       debugPrint("Download stopped")
+      //TODO: End background task
     }
 
     /// Creamos el URL Request para obtener la data.
