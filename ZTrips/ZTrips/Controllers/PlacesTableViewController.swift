@@ -144,11 +144,6 @@ class PlacesTableViewController: UITableViewController {
     let cell = tableView.cellForRow(at: indexPath) as? PlaceTableViewCell
     transitionThumbnail = cell?.mainImageView
     
-    
-    //let placeDetailViewController = PlaceDetailViewController()
-    //placeDetailViewController.place = fetchedResultsController.object(at: indexPath)
-    //navigationController?.pushViewController(placeDetailViewController, animated: true)
-    
    self.performSegue(withIdentifier: SegueIdentifiers.PLACE_DETAIL, sender: self)
     
   }
